@@ -4,7 +4,7 @@ import argparse
 parser = argparse.ArgumentParser()
 args_list = []
 
-root_dir = "/media/dataset/fruit_2" #@param {type: "string"}
+root_dir = "/media/dataset/castello" #@param {type: "string"}
 parser.add_argument('--root_dir', type=str)
 args_list.append('--root_dir')
 args_list.append(root_dir)
@@ -26,7 +26,7 @@ args_list.append(str(downsample))
 
 #@markdown ---
 #@markdown ### Model parameters
-scale = 0.5  #@param {type:"number"}
+scale = 2  #@param {type:"number"}
 parser.add_argument('--scale', type=float)
 args_list.append('--scale')
 args_list.append(str(scale))
@@ -102,7 +102,7 @@ if no_save_test:
 
 #@markdown ---
 #@markdown ### Misc
-exp_name = "fruit_2" #@param {type:"string"}
+exp_name = "castello" #@param {type:"string"}
 parser.add_argument('--exp_name', type=str)
 args_list.append('--exp_name')
 args_list.append(exp_name)
