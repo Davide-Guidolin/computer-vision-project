@@ -28,7 +28,7 @@ parser.add_argument('--dataset_name', type=str)
 args_list.append('--dataset_name')
 args_list.append(dataset_name)
 
-scale = 0.5  #@param {type:"number"}
+scale = 2  #@param {type:"number"}
 parser.add_argument('--scale', type=float)
 args_list.append('--scale')
 args_list.append(str(scale))
@@ -89,5 +89,8 @@ vertices, triangles = mcubes.marching_cubes(sigma, sigma_threshold)
 mesh_folder = f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/mesh'
 if not os.path.exists(mesh_folder):
     os.mkdir(mesh_folder)
+
+if os.path.exists(f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/mesh/mesh.dae'):
+    os.remove(f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/mesh/mesh.dae')
 
 mcubes.export_mesh(vertices, triangles, f"/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/mesh/mesh.dae")

@@ -1,6 +1,8 @@
 from ngp_pl.train import *
 
 import argparse
+import os
+
 parser = argparse.ArgumentParser()
 args_list = []
 
@@ -26,7 +28,7 @@ args_list.append(str(downsample))
 
 #@markdown ---
 #@markdown ### Model parameters
-scale = 0.5  #@param {type:"number"}
+scale = 2  #@param {type:"number"}
 parser.add_argument('--scale', type=float)
 args_list.append('--scale')
 args_list.append(str(scale))
@@ -156,6 +158,8 @@ trainer = Trainer(max_epochs=hparams.num_epochs,
 trainer.fit(system, ckpt_path=hparams.ckpt_path)
 
 if not hparams.val_only: # save slimmed ckpt for the last epoch
+    if os.path.exists(f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/epoch={hparams.num_epochs-1}.ckpt'):
+        os.remove(f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/epoch={hparams.num_epochs-1}.ckpt')
     ckpt_ = \
         slim_ckpt(f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/epoch={hparams.num_epochs-1}.ckpt',
                     save_poses=hparams.optimize_ext)
