@@ -1,4 +1,4 @@
-apt-get update && apt-get install -y wget
+apt-get update
 apt-get install libgl1 -y
 # # pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 torchtext==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu113
 export TORCH_VERSION=$(python -c "import torch; print(torch.__version__)")
