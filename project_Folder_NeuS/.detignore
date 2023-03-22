@@ -1,0 +1,8 @@
+__pycache__
+Dataset
+Checkpoints
+Acc_Loss.txt
+Epoch.txt
+logging.log
+output.out
+README.md

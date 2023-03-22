@@ -1,0 +1,20 @@
+name: battocchiozinni
+entrypoint: python3 exp_runner.py --mode train --conf ./confs/womask.conf --case fruit_2
+
+resources:
+   slots_per_trial: 1
+
+bind_mounts:
+  - host_path: /media/mmlab/Volume/battocchiozinni
+    container_path: /media/dataset
+    read_only: true
+  - host_path: /home/battocchiozinni/Documents
+    container_path: /media/checkpoint
+    read_only: false
+
+searcher:
+  name: single
+  metric: accuracy
+  max_length: 1
+  
+max_restarts: 0
