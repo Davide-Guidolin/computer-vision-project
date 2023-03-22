@@ -1,3 +1,6 @@
 [submodule "project_Folder/ngp_pl"]
 	path = project_Folder/ngp_pl
 	url = https://github.com/Davide-Guidolin/ngp_pl
+[submodule "project_Folder_NeuS/NeuS"]
+	path = project_Folder_NeuS/NeuS
+	url = https://github.com/Davide-Guidolin/NeuS.git

@@ -1,5 +1,5 @@
 name: battocchiozinni
-entrypoint: python3 code/main.py
+entrypoint: python3 code/dummy.py
 
 resources:
    slots_per_trial: 1
