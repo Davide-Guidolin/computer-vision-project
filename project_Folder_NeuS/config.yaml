@@ -2,7 +2,7 @@ name: battocchiozinni
 entrypoint: python3 exp_runner.py --mode train --conf ./confs/womask.conf --case fruit_2
 
 resources:
-   slots_per_trial: 1
+   slots_per_trial: 2
 
 bind_mounts:
   - host_path: /media/mmlab/Volume/battocchiozinni
