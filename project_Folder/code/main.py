@@ -6,7 +6,7 @@ import os
 parser = argparse.ArgumentParser()
 args_list = []
 
-root_dir = "/media/dataset/castello" #@param {type: "string"}
+root_dir = "/media/dataset/chair" #@param {type: "string"}
 parser.add_argument('--root_dir', type=str)
 args_list.append('--root_dir')
 args_list.append(root_dir)
@@ -104,7 +104,7 @@ if no_save_test:
 
 #@markdown ---
 #@markdown ### Misc
-exp_name = "castello" #@param {type:"string"}
+exp_name = "chair" #@param {type:"string"}
 parser.add_argument('--exp_name', type=str)
 args_list.append('--exp_name')
 args_list.append(exp_name)
