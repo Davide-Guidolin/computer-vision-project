@@ -37,7 +37,7 @@ print(f"Processing {len(images)} images")
 for i, im in enumerate(images):
     print(f"{i}/{len(images)}\r")
     im_path = os.path.join(image_folder, im)
-    img = cv2.imread(im_path)
+    img = cv2.imread(im_path, cv2.IMREAD_UNCHANGED)
 
     h, w, c = img.shape
 

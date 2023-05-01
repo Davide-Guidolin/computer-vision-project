@@ -10,6 +10,7 @@ def check_folder(folder):
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--folder')
+parser.add_argument('--upper', action='store_true', default=False)
 
 args = parser.parse_args()
 
@@ -29,7 +30,11 @@ print(f"Processing {len(images)} images")
 for i, name in enumerate(images):
     print(f"{i}/{len(images)}\r")
     im_path = os.path.join(image_folder, name)
-    new_name = name.lower()
+
+    if args.upper:
+        new_name = name.upper()
+    else:
+        new_name = name.lower()
 
     new_path = os.path.join(image_folder, new_name)
 

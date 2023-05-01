@@ -1,5 +1,5 @@
 name: battocchiozinni
-entrypoint: python3 exp_runner.py --mode train --conf ./confs/womask.conf --case fruit_2
+entrypoint: python3 exp_runner.py --mode train --conf ./confs/womask.conf --case chair_raw
 
 resources:
    slots_per_trial: 2
