@@ -33,7 +33,7 @@ parser.add_argument('--scale', type=float)
 args_list.append('--scale')
 args_list.append(str(scale))
 
-exp_name = "chair" #@param {type:"string"}
+exp_name = "chair_white_bg" #@param {type:"string"}
 parser.add_argument('--exp_name', type=str)
 args_list.append('--exp_name')
 args_list.append(exp_name)

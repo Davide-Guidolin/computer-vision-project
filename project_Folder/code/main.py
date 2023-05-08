@@ -6,7 +6,7 @@ import os
 parser = argparse.ArgumentParser()
 args_list = []
 
-root_dir = "/media/dataset/chair" #@param {type: "string"}
+root_dir = "/media/dataset/chair_white_bg" #@param {type: "string"}
 parser.add_argument('--root_dir', type=str)
 args_list.append('--root_dir')
 args_list.append(root_dir)
@@ -21,7 +21,7 @@ parser.add_argument('--split', type=str)
 args_list.append('--split')
 args_list.append(split)
 
-downsample = 0.5 #@param {type:"number"}
+downsample = 0.25 #@param {type:"number"}
 parser.add_argument('--downsample', type=float)
 args_list.append('--downsample')
 args_list.append(str(downsample))
@@ -47,7 +47,7 @@ args_list.append(str(distortion_loss_w))
 
 #@markdown ---
 #@markdown ### Training options
-batch_size = 8192 #@param {type:"integer"}
+batch_size = 2048 #@param {type:"integer"}
 parser.add_argument('--batch_size', type=int)
 args_list.append('--batch_size')
 args_list.append(str(batch_size))
@@ -104,7 +104,7 @@ if no_save_test:
 
 #@markdown ---
 #@markdown ### Misc
-exp_name = "chair" #@param {type:"string"}
+exp_name = "chair_white_bg" #@param {type:"string"}
 parser.add_argument('--exp_name', type=str)
 args_list.append('--exp_name')
 args_list.append(exp_name)
@@ -158,8 +158,6 @@ trainer = Trainer(max_epochs=hparams.num_epochs,
 trainer.fit(system, ckpt_path=hparams.ckpt_path)
 
 if not hparams.val_only: # save slimmed ckpt for the last epoch
-    if os.path.exists(f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/epoch={hparams.num_epochs-1}.ckpt'):
-        os.remove(f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/epoch={hparams.num_epochs-1}.ckpt')
     ckpt_ = \
         slim_ckpt(f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/epoch={hparams.num_epochs-1}.ckpt',
                     save_poses=hparams.optimize_ext)
