@@ -28,12 +28,12 @@ parser.add_argument('--dataset_name', type=str)
 args_list.append('--dataset_name')
 args_list.append(dataset_name)
 
-scale = 2  #@param {type:"number"}
+scale = 2.2  #@param {type:"number"}
 parser.add_argument('--scale', type=float)
 args_list.append('--scale')
 args_list.append(str(scale))
 
-exp_name = "chair_white_bg" #@param {type:"string"}
+exp_name = "chair_raw" #@param {type:"string"}
 parser.add_argument('--exp_name', type=str)
 args_list.append('--exp_name')
 args_list.append(exp_name)
@@ -42,7 +42,7 @@ args = parser.parse_args(args_list)
 
 hparams = args
 
-ckpt_path = "epoch=99_slim.ckpt" #@param {type:"string"}
+ckpt_path = "epoch=199_slim.ckpt" #@param {type:"string"}
 model = NGP(scale=hparams.scale).cuda()
 load_ckpt(model, f'/media/checkpoint/{hparams.dataset_name}/{hparams.exp_name}/{ckpt_path}')
 
@@ -59,9 +59,10 @@ indices = vren.morton3D(xyz.cuda()).long()
 N = 512 # controls the resolution, set this number small here because we're only finding
         # good ranges here, not yet for mesh reconstruction; we can set this number high
         # when it comes to final reconstruction.
-xmin, xmax = -0.3, 0.7 # left/right range
-ymin, ymax = -0.2, 0.8 # forward/backward range
-zmin, zmax = -0.5, 0.5 # up/down range
+
+xmin, xmax = -0.5, 0.5 # left/right range
+ymin, ymax = -0.4, 0.6 # forward/backward range
+zmin, zmax = -1.0, 0.0 # up/down range
 ## Attention! the ranges MUST have the same length!
 sigma_threshold = 20. # controls the noise (lower=maybe more noise; higher=some mesh might be missing)
 ############################################################################################

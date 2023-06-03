@@ -1,11 +1,11 @@
 name: battocchiozinni
-entrypoint: python3 exp_runner.py --mode train --conf ./confs/womask.conf --case chair_raw
+entrypoint: python3 exp_runner.py --mode train --conf ./confs/thin_structure.conf --case chair_raw
 
 resources:
-   slots_per_trial: 2
+   slots_per_trial: 1
 
 bind_mounts:
-  - host_path: /media/mmlab/Volume/battocchiozinni
+  - host_path: /media/mmlab/Volume/battocchiozinni/NeuS_data/
     container_path: /media/dataset
     read_only: true
   - host_path: /home/battocchiozinni/Documents
@@ -18,3 +18,5 @@ searcher:
   max_length: 1
   
 max_restarts: 0
+
+# det -m 10.196.36.18:8080 trial logs -f 1009
